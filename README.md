@@ -36,8 +36,8 @@ Por medio de este diagrama es posible ver el encapsulado de los componentes que 
 **4.** Abir ventana de comandos/cmd, navegue hasta la carpeta donde se alojo la solución y ejecute el siguiente comnado: `docker-compose build`
 
 **5.** A continuación ejecute el siguiente comando `docker-compose up` espere hasta que la aplicación quede arriba y el tomcat escuchado por el puerto 8080.
-
-> Tomcat started on port(s): 8080 (http)
+**Nota:** Esto puede tardar varios minutos, se paciente el servicio queda arriba una veas el siguiente mensaje en la consola:
+> Tomcat started on port(s): 8080 (http) with context path''
 
 *Desde otra ventana de comandos (cmd) puede verificar los contenedore corriendo a traves del siguiente comando:*
 **docker container ps**
