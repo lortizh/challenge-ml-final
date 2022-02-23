@@ -42,7 +42,7 @@ Por medio de este diagrama es posible ver el encapsulado de los componentes que 
 *Desde otra ventana de comandos (cmd) puede verificar los contenedore corriendo a traves del siguiente comando:*
 **docker container ps**
 
-**6.** Pruebe la creación de la base de datos y las tablas con un cliente como **MySQL Workbench 8.0 CE**. Ejecute los siguientes insert para poblar los roles que soportara la aplicación (este paso se requiere para poder dar de alta a un usuario a traves de las apis):
+**6.** Pruebe la creación de la base de datos y las tablas con un cliente como **MySQL Workbench 8.0 CE** accediendo a traves del puerto 3306 y localhost, el user y password las puede validar en el archivo **application.properties**. Ejecute los siguientes insert para poblar los roles que soportara la aplicación (este paso se requiere para poder dar de alta a un usuario a traves de las apis):
 
 `INSERT INTO testdb.roles(name) VALUES('ROLE_USER');`
 
@@ -62,7 +62,7 @@ POST *http://localhost:8080/api/v1/auth/signup*
 
 **8.** A continuación inicie sesión a traves del api:
 
-POST *http://localhost:8088/api/v1/auth/signin*
+POST *http://localhost:8080/api/v1/auth/signin*
 
 {
     "username": "leoh",
@@ -73,7 +73,7 @@ POST *http://localhost:8088/api/v1/auth/signin*
 
 **9.** El siguiente paso sería hacer una busqueda de libros de Google a traves del api:
 
-GET *http://localhost:8088/api/v1/google/books?key_word=palabraclavebusqueda*
+GET *http://localhost:8080/api/v1/google/books?key_word=palabraclavebusqueda*
 
 > No olvides configurar el Token Bearer
 
@@ -82,7 +82,7 @@ Obtendra un listado de libros de acuerdo al parametro ingresado en key_word.
 
 **10.** A continuación puede almacenar en el sistema todos los libros que desee a traves del api:
 
-POST *http://localhost:8088/api/v1/books*
+POST *http://localhost:8080/api/v1/books*
 
 {
         "url": "https://www.googleapis.com/books/v1/volumes/DN7aDwAAQBAJ",
@@ -95,7 +95,7 @@ POST *http://localhost:8088/api/v1/books*
 
 **11.** Una vez registrados los libros en el sistema estos pueden ser consultados a traves de la siguiente API por volumen o por author:
 
-GET *http://localhost:8088/api/v1/books/{volumen}?author=nombreAutor*
+GET *http://localhost:8080/api/v1/books/{volumen}?author=nombreAutor*
 
 > No olvides configurar el Token Bearer
 
@@ -103,7 +103,7 @@ GET *http://localhost:8088/api/v1/books/{volumen}?author=nombreAutor*
 
 ####Crear Wishlist####
 
-POST *http://localhost:8088/api/v1/wishlist*
+POST *http://localhost:8080/api/v1/wishlist*
 
 
 {
@@ -127,26 +127,26 @@ POST *http://localhost:8088/api/v1/wishlist*
 
 Una Wishlist puede ser consultada por id y usuario
 
-GET *http://localhost:8088/api/v1/wishlist/{idWishlist}/{username}*
+GET *http://localhost:8080/api/v1/wishlist/{idWishlist}/{username}*
 
 > No olvides configurar el Token Bearer
 
 ####Consultar Todas las Wishlist de un Usuario dado####
 
-GET *http://localhost:8088/api/v1/wishlist/{username}*
+GET *http://localhost:8080/api/v1/wishlist/{username}*
 
 > No olvides configurar el Token Bearer
 
 
 ####Eliminar una Wishlist####
 
-DELETE *http://localhost:8088/api/v1/wishlist/{idWishlist}*
+DELETE *http://localhost:8080/api/v1/wishlist/{idWishlist}*
 
 > No olvides configurar el Token Bearer
 
 
 ####Consultar Todas las Wishlist####
 
-GET *http://localhost:8088/api/v1/wishlist*
+GET *http://localhost:8080/api/v1/wishlist*
 
 > No olvides configurar el Token Bearer
